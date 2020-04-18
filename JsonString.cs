@@ -12,7 +12,7 @@ namespace Penguin.Json
         {
             get
             {
-                if (this.IsValid())
+                if (this.IsValid)
                 {
                     return JToken.Parse(_value).ToString(Formatting.Indented);
                 }
@@ -37,11 +37,12 @@ namespace Penguin.Json
 
         public static implicit operator JsonString(JToken b) => new JsonString(b.ToString());
 
-        public static implicit operator JToken(JsonString d) => d.IsValid() ? JToken.Parse(d) : null;
+        public static implicit operator JToken(JsonString d) => (d.IsValid ? JToken.Parse(d) : null);
 
         public static implicit operator string(JsonString d) => d.Value;
 
-        public static bool IsValid(string json)
+        public bool IsValid => Validate(this._value);
+        public static bool Validate(string json)
         {
             json = json?.Trim();
 
@@ -90,8 +91,6 @@ namespace Penguin.Json
         {
             _value = fromT.ToString();
         }
-
-        public bool IsValid() => IsValid(this._value);
 
         public override string ToString()
         {
