@@ -10,7 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="Penguin.SystemExtensions.Abstractions" Version="1.0.1-T9W7B2P" />
+    <PackageReference Include="Penguin.SystemExtensions.Abstractions" Version="1.0.1-T9X8YHS" />
   </ItemGroup>
   <Import Project="Penguin.Projects.Shared\Penguin.Projects.Shared.csproj" />
 </Project>
