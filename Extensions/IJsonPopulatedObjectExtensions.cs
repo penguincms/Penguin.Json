@@ -124,6 +124,11 @@ namespace Penguin.Json.Extensions
 
             foreach (PropertyInfo pi in source.GetType().GetProperties().Where(p => p.GetIndexParameters().Length == 0 && p.GetGetMethod() != null))
             {
+                if(!(pi.GetCustomAttribute<JsonIgnoreAttribute>() is null))
+                {
+                    continue;
+                }
+
                 string jName = pi.GetJsonName();
 
                 JProperty oldProp = oldObject.Property(jName);
@@ -134,9 +139,9 @@ namespace Penguin.Json.Extensions
 
                 JToken jVal = null;
 
-                if (curVal is IEnumerable e)
+                if (curVal is IEnumerable e && !(e is string))
                 {
-                    JArray a = oldProp.Value as JArray;
+                    JArray a = oldProp.Value as JArray ?? new JArray();
 
                     a.Clear();
 
