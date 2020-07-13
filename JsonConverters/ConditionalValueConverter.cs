@@ -35,6 +35,11 @@ namespace Penguin.Json.JsonConverters
             while (!toCheck.GenericTypeArguments.Any())
             {
                 toCheck = toCheck.BaseType;
+
+                if (toCheck is null)
+                {
+                    throw new NullReferenceException("Unable to find generic type arguments in inheritance tree");
+                }
             }
 
             genericType = toCheck.GenericTypeArguments[0];

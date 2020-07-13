@@ -8,16 +8,31 @@ namespace Penguin.Json.Extensions
     {
         public static TReturn Property<TReturn>(this JObject source, PropertyInfo propertyInfo) where TReturn : class
         {
+            if (propertyInfo is null)
+            {
+                throw new ArgumentNullException(nameof(propertyInfo));
+            }
+
             return source.Property<TReturn>(propertyInfo, false);
         }
 
         public static JProperty Property(this JObject source, PropertyInfo propertyInfo)
         {
+            if (source is null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
+
             return source.Property(propertyInfo.GetJsonName());
         }
 
         public static TReturn Remove<TReturn>(this JObject source, PropertyInfo propertyInfo) where TReturn : class
         {
+            if (propertyInfo is null)
+            {
+                throw new ArgumentNullException(nameof(propertyInfo));
+            }
+
             return source.Property<TReturn>(propertyInfo, true);
         }
 
@@ -44,8 +59,6 @@ namespace Penguin.Json.Extensions
                 throw new ArgumentNullException(nameof(propertyType));
             }
 
-            JToken jEntity = source.Property(propertyName).Value as JToken;
-
             if (Remove)
             {
                 source.Remove(propertyName);
@@ -53,7 +66,7 @@ namespace Penguin.Json.Extensions
 
             TReturn newValue = null;
 
-            if (!(jEntity is null))
+            if (source.Property(propertyName).Value is JToken jEntity)
             {
                 newValue = JsonConvert.DeserializeObject(jEntity.ToString(), propertyType) as TReturn;
             }

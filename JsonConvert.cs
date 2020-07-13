@@ -217,7 +217,6 @@ namespace Penguin.Json
 
         public static string ToString(byte value) => NJsonConvert.ToString(value);
 
-        [CLSCompliant(false)]
         public static string ToString(sbyte value) => NJsonConvert.ToString(value);
 
         public static string ToString(decimal value) => NJsonConvert.ToString(value);

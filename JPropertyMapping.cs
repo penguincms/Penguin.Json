@@ -46,7 +46,7 @@ namespace Penguin.Json
         public object Source { get; set; }
         public object Value { get; set; }
 
-        public JPropertyMapping(object source, JProperty jProperty, JPropertyMapping parent = null)
+        public JPropertyMapping(object source, JProperty jProperty)
         {
             if (source is null)
             {
