@@ -205,13 +205,10 @@ namespace Penguin.Json
 
         public static string ToString(short value) => NJsonConvert.ToString(value);
 
-        [CLSCompliant(false)]
         public static string ToString(ushort value) => NJsonConvert.ToString(value);
 
-        [CLSCompliant(false)]
         public static string ToString(uint value) => NJsonConvert.ToString(value);
 
-        [CLSCompliant(false)]
         public static string ToString(ulong value) => NJsonConvert.ToString(value);
 
         public static string ToString(float value) => NJsonConvert.ToString(value);
