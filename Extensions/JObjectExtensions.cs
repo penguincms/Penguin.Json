@@ -59,16 +59,17 @@ namespace Penguin.Json.Extensions
                 throw new ArgumentNullException(nameof(propertyType));
             }
 
-            if (Remove)
-            {
-                source.Remove(propertyName);
-            }
 
             TReturn newValue = null;
 
-            if (source.Property(propertyName).Value is JToken jEntity)
+            if (source.Property(propertyName)?.Value is JToken jEntity)
             {
                 newValue = JsonConvert.DeserializeObject(jEntity.ToString(), propertyType) as TReturn;
+            }
+
+            if (Remove)
+            {
+                source.Remove(propertyName);
             }
 
             return newValue;
