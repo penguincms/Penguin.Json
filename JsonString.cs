@@ -16,32 +16,44 @@ namespace Penguin.Json
             {
                 if (this.IsValid)
                 {
-                    return JToken.Parse(_value).ToString(Formatting.Indented);
+                    return JToken.Parse(this._value).ToString(Formatting.Indented);
                 }
                 else
                 {
                     return this._value;
                 }
             }
-            set => _value = value;
+            set => this._value = value;
         }
 
         public JsonString(string value)
         {
-            _value = value;
+            this._value = value;
         }
 
         public JsonString()
         {
         }
 
-        public static implicit operator JsonString(string b) => new JsonString(b);
+        public static implicit operator JsonString(string b)
+        {
+            return new JsonString(b);
+        }
 
-        public static implicit operator JsonString(JToken b) => new JsonString(b?.ToString());
+        public static implicit operator JsonString(JToken b)
+        {
+            return new JsonString(b?.ToString());
+        }
 
-        public static implicit operator JToken(JsonString d) => ((d?.IsValid ?? false) ? JToken.Parse(d) : null);
+        public static implicit operator JToken(JsonString d)
+        {
+            return ((d?.IsValid ?? false) ? JToken.Parse(d) : null);
+        }
 
-        public static implicit operator string(JsonString d) => d?.Value;
+        public static implicit operator string(JsonString d)
+        {
+            return d?.Value;
+        }
 
         public static bool Validate(string json)
         {
@@ -76,11 +88,14 @@ namespace Penguin.Json
             return true;
         }
 
-        public string Convert() => _value;
+        public string Convert()
+        {
+            return this._value;
+        }
 
         public void Convert(string fromT)
         {
-            _value = fromT;
+            this._value = fromT;
         }
 
         JToken IConvertible<JToken>.Convert()
@@ -90,12 +105,12 @@ namespace Penguin.Json
 
         void IConvertible<JToken>.Convert(JToken fromT)
         {
-            _value = fromT.ToString();
+            this._value = fromT.ToString();
         }
 
         public override string ToString()
         {
-            return Value;
+            return this.Value;
         }
     }
 }

@@ -25,7 +25,6 @@ namespace Penguin.Json.Extensions
             return GetUpdatedJson(source, JObject.Parse(source.RawJson), serializerSettings);
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters", Justification = "<Pending>")]
         internal static void SetRawJson(this IJsonPopulatedObject source, string rawJson)
         {
             if (source is null)
@@ -124,7 +123,7 @@ namespace Penguin.Json.Extensions
 
             foreach (PropertyInfo pi in source.GetType().GetProperties().Where(p => p.GetIndexParameters().Length == 0 && p.GetGetMethod() != null))
             {
-                if(!(pi.GetCustomAttribute<JsonIgnoreAttribute>() is null))
+                if (!(pi.GetCustomAttribute<JsonIgnoreAttribute>() is null))
                 {
                     continue;
                 }
