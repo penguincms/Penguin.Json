@@ -3,7 +3,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageProjectUrl>https://github.com/penguincms/Penguin.Json</PackageProjectUrl>
     <DocumentationFile>Penguin.Json.xml</DocumentationFile>
-    <Version>5.0.0</Version>
+    <Version>5.0.1</Version>
     <AssemblyName>Penguin.Json</AssemblyName>
     <RootNamespace>Penguin.Json</RootNamespace>
     <Description>Not Available</Description>
