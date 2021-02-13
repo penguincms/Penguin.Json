@@ -17,12 +17,9 @@ namespace Penguin.Json.Extensions
                 return null;
             }
 
-            if (string.IsNullOrWhiteSpace(source.RawJson))
-            {
-                return JsonConvert.SerializeObject(source);
-            }
-
-            return GetUpdatedJson(source, JObject.Parse(source.RawJson), serializerSettings);
+            return string.IsNullOrWhiteSpace(source.RawJson)
+                ? JsonConvert.SerializeObject(source)
+                : GetUpdatedJson(source, JObject.Parse(source.RawJson), serializerSettings);
         }
 
         internal static void SetRawJson(this IJsonPopulatedObject source, string rawJson)
@@ -76,6 +73,33 @@ namespace Penguin.Json.Extensions
             source.RawJson = rawJson;
         }
 
+        public static string GetPropertyName(this IJsonPopulatedObject o, string propertyName)
+        {
+            if(o is null)
+            {
+                return propertyName;
+            }
+
+            return GetPropertyInfoByJsonName(o, propertyName)?.Name ?? propertyName;
+        }
+
+        private static PropertyInfo GetPropertyInfoByJsonName(object o, string jsonName)
+        {
+            if (o is null)
+            {
+                throw new ArgumentNullException(nameof(o));
+            }
+
+            foreach (PropertyInfo pi in o.GetType().GetProperties())
+            {
+                if (pi.GetCustomAttribute<JsonPropertyAttribute>() is JsonPropertyAttribute jpa && jpa.PropertyName == jsonName)
+                {
+                    return pi;
+                }
+            }
+
+            return null;
+        }
         private static JToken GetToken(object o, Type oType, JsonSerializerSettings serializerSettings)
         {
             string jVal = null;
