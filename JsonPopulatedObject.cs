@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Penguin.Json.Abstractions.Interfaces;
-using Penguin.Json.Extensions;
 using System.Collections.Generic;
 using System.Reflection;
 
@@ -37,8 +36,6 @@ namespace Penguin.Json
             }
         }
 
-
-
         string IJsonPopulatedObject.RawJson
         {
             get => this.backingObject.ToString();
@@ -46,7 +43,7 @@ namespace Penguin.Json
         }
 
         /// <summary>
-        /// Gets the value of a requested property, first from the hard-coded properties and then from the 
+        /// Gets the value of a requested property, first from the hard-coded properties and then from the
         /// backing JSON
         /// </summary>
         /// <param name="propertyName">The name of the property to retrieve</param>
@@ -62,7 +59,5 @@ namespace Penguin.Json
 
             return backingObject[propertyName].ToString();
         }
-
-        
     }
 }

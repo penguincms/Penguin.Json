@@ -6,7 +6,7 @@
     <members>
         <member name="M:Penguin.Json.JsonPopulatedObject.Penguin#Json#Abstractions#Interfaces#IJsonPopulatedObject#GetProperty(System.String)">
             <summary>
-            Gets the value of a requested property, first from the hard-coded properties and then from the 
+            Gets the value of a requested property, first from the hard-coded properties and then from the
             backing JSON
             </summary>
             <param name="propertyName">The name of the property to retrieve</param>
