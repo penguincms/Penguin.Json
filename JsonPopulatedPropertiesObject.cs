@@ -6,11 +6,11 @@ using System.Reflection;
 
 namespace Penguin.Json
 {
-    public class JsonPopulatedObject : IJsonPopulatedObject
+    public class JsonPopulatedPropertiesObject : IJsonPopulatedPropertiesObject
     {
         private JObject backingObject;
 
-        IEnumerable<string> IJsonPopulatedObject.Properties
+        IEnumerable<string> IJsonPopulatedPropertiesObject.Properties
         {
             get
             {
@@ -48,7 +48,7 @@ namespace Penguin.Json
         /// </summary>
         /// <param name="propertyName">The name of the property to retrieve</param>
         /// <returns>The current value of the property</returns>
-        object IJsonPopulatedObject.GetProperty(string propertyName)
+        object IJsonPopulatedPropertiesObject.GetProperty(string propertyName)
         {
             if (this.GetType().GetProperty(propertyName) is PropertyInfo pi && pi.GetCustomAttribute<JsonPropertyAttribute>() is JsonPropertyAttribute jpa)
             {
