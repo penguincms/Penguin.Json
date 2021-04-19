@@ -48,13 +48,12 @@ namespace Penguin.Json.Extensions
                 if (v is IJsonPopulatedObject jpo)
                 {
                     JProperty property = rawObject.Property(propertyInfo);
-                    jpo.SetRawJson(property.ToString());
+                    jpo.SetRawJson(property.Value.ToString());
                     property.Remove();
                 }
-                else if (v is IEnumerable e)
+                else if (v is IEnumerable e && rawObject.Property(propertyInfo)?.Value is JArray aObjects)
                 {
                     int index = 0;
-                    JArray aObjects = rawObject.Property(propertyInfo).Value as JArray;
 
                     foreach (object o in e)
                     {
@@ -62,7 +61,6 @@ namespace Penguin.Json.Extensions
                         {
                             JToken thisObject = aObjects[index];
                             ijpo.SetRawJson(thisObject.ToString());
-                            thisObject.Remove();
                         }
 
                         index++;
