@@ -50,7 +50,7 @@ namespace Penguin.Json
         /// <returns>The current value of the property</returns>
         object IJsonPopulatedPropertiesObject.GetProperty(string propertyName)
         {
-            if (this.GetType().GetProperty(propertyName) is PropertyInfo pi && pi.GetCustomAttribute<JsonPropertyAttribute>() is JsonPropertyAttribute jpa)
+            if (this.GetType().GetProperty(propertyName) is PropertyInfo pi && pi.GetCustomAttribute<JsonPropertyAttribute>() is JsonPropertyAttribute)
             {
                 return pi.GetValue(this);
             }
