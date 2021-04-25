@@ -3,17 +3,17 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageProjectUrl>https://github.com/penguincms/Penguin.Json</PackageProjectUrl>
     <DocumentationFile>Penguin.Json.xml</DocumentationFile>
-    <Version>5.0.1</Version>
+    <Version>5.0.5</Version>
     <AssemblyName>Penguin.Json</AssemblyName>
     <RootNamespace>Penguin.Json</RootNamespace>
     <Description>Not Available</Description>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="Penguin.SystemExtensions.Abstractions" Version="5.0.2-TADRIFB" />
-    <PackageReference Include="Penguin.Reflection" Version="5.0.2-TADRIFB" />
-    <PackageReference Include="Penguin.Json.Abstractions" Version="5.0.2-TADRIFB" />
-    <PackageReference Include="Penguin.Reflection.Extensions" Version="5.0.2-TADRIFB" />
+    <PackageReference Include="Penguin.SystemExtensions.Abstractions" Version="5.0.4" />
+    <PackageReference Include="Penguin.Json.Abstractions" Version="5.0.4" />
+    <PackageReference Include="Penguin.Reflection.Extensions" Version="5.0.4" />
+    <PackageReference Include="Penguin.Reflection" Version="5.0.4" />
   </ItemGroup>
   <Import Project="Penguin.Projects.Shared\Penguin.Projects.Shared.csproj" />
 </Project>
