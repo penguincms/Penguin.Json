@@ -36,7 +36,10 @@ namespace Penguin.Json.Extensions
             return source.Property<TReturn>(propertyInfo, true);
         }
 
-        private static TReturn Property<TReturn>(this JObject source, PropertyInfo propertyInfo, bool Remove) where TReturn : class => source.Property<TReturn>(propertyInfo.GetJsonName(), propertyInfo.PropertyType, Remove);
+        private static TReturn Property<TReturn>(this JObject source, PropertyInfo propertyInfo, bool Remove) where TReturn : class
+        {
+            return source.Property<TReturn>(propertyInfo.GetJsonName(), propertyInfo.PropertyType, Remove);
+        }
 
         private static TReturn Property<TReturn>(this JObject source, string propertyName, Type propertyType, bool Remove) where TReturn : class
         {

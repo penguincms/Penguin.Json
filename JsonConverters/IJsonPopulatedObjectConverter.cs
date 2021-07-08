@@ -9,7 +9,10 @@ namespace Penguin.Json.JsonConverters
     public class IJsonPopulatedObjectConverter : JsonConverter<IJsonPopulatedObject>
     {
         public bool FaultTolerant { get; private set; }
-        public IJsonPopulatedObjectConverter(bool faultTolerant = false) => this.FaultTolerant = faultTolerant;
+        public IJsonPopulatedObjectConverter(bool faultTolerant = false)
+        {
+            this.FaultTolerant = faultTolerant;
+        }
 
         public override bool CanWrite => false;
         public override IJsonPopulatedObject ReadJson(JsonReader reader, Type objectType, IJsonPopulatedObject existingValue, bool hasExistingValue, JsonSerializer serializer)
@@ -24,7 +27,7 @@ namespace Penguin.Json.JsonConverters
                 throw new ArgumentNullException(nameof(serializer));
             }
 
-            if(reader.TokenType != JsonToken.StartObject)
+            if (reader.TokenType != JsonToken.StartObject)
             {
                 return !this.FaultTolerant
                     ? throw new Exception($"Json object expected at path '{reader.Path}', but found {reader.TokenType}")
@@ -44,6 +47,9 @@ namespace Penguin.Json.JsonConverters
 
         }
 
-        public override void WriteJson(JsonWriter writer, IJsonPopulatedObject value, JsonSerializer serializer) => throw new NotImplementedException();
+        public override void WriteJson(JsonWriter writer, IJsonPopulatedObject value, JsonSerializer serializer)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

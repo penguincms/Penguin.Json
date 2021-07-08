@@ -73,7 +73,7 @@ namespace Penguin.Json.Extensions
 
         public static string GetPropertyName(this IJsonPopulatedObject o, string propertyName)
         {
-            if(o is null)
+            if (o is null)
             {
                 return propertyName;
             }
