@@ -13,7 +13,7 @@
     <PackageReference Include="Penguin.SystemExtensions.Abstractions" Version="5.0.6-TAHULSY" />
     <PackageReference Include="Penguin.Json.Abstractions" Version="5.0.6-TAHULSY" />
     <PackageReference Include="Penguin.Reflection.Extensions" Version="5.0.6-TAHULSY" />
-    <PackageReference Include="Penguin.Reflection" Version="5.0.6-TAHULSY" />
+    <PackageReference Include="Penguin.Reflection" Version="5.0.6-TAJHTXV" />
   </ItemGroup>
   <Import Project="Penguin.Projects.Shared\Penguin.Projects.Shared.csproj" />
 </Project>
