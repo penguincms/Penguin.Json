@@ -47,9 +47,6 @@ namespace Penguin.Json.JsonConverters
 
         }
 
-        public override void WriteJson(JsonWriter writer, IJsonPopulatedObject value, JsonSerializer serializer)
-        {
-            throw new NotImplementedException();
-        }
+        public override void WriteJson(JsonWriter writer, IJsonPopulatedObject value, JsonSerializer serializer) => throw new NotImplementedException();
     }
 }

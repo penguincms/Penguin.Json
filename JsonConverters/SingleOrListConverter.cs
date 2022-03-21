@@ -7,10 +7,7 @@ namespace Penguin.Json.JsonConverters
 {
     public class SingleOrListConverter : JsonConverter
     {
-        public override bool CanConvert(Type objectType)
-        {
-            return objectType.IsList();
-        }
+        public override bool CanConvert(Type objectType) => objectType.IsList();
 
         public override bool CanRead => true;
         public override bool CanWrite => false;
@@ -69,9 +66,6 @@ namespace Penguin.Json.JsonConverters
             }
         }
 
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
-        {
-            throw new NotImplementedException();
-        }
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer) => throw new NotImplementedException();
     }
 }
