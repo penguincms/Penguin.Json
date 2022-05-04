@@ -18,10 +18,16 @@ namespace Penguin.Json
         }
 
         [DebuggerStepThrough]
-        public static T DeserializeAnonymousType<T>(string value, T anonymousTypeObject) => NJsonConvert.DeserializeAnonymousType<T>(value, anonymousTypeObject);
+        public static T DeserializeAnonymousType<T>(string value, T anonymousTypeObject)
+        {
+            return NJsonConvert.DeserializeAnonymousType<T>(value, anonymousTypeObject);
+        }
 
         [DebuggerStepThrough]
-        public static T DeserializeAnonymousType<T>(string value, T anonymousTypeObject, JsonSerializerSettings settings) => NJsonConvert.DeserializeAnonymousType<T>(value, anonymousTypeObject, settings);
+        public static T DeserializeAnonymousType<T>(string value, T anonymousTypeObject, JsonSerializerSettings settings)
+        {
+            return NJsonConvert.DeserializeAnonymousType<T>(value, anonymousTypeObject, settings);
+        }
 
         [DebuggerStepThrough]
         public static T DeserializeObject<T>(string value, JsonSerializerSettings settings)
@@ -126,111 +132,258 @@ namespace Penguin.Json
             return toReturn;
         }
 
-        public static XmlDocument DeserializeXmlNode(string value, string deserializeRootElementName, bool writeArrayAttribute, bool encodeSpecialCharacters) => NJsonConvert.DeserializeXmlNode(value, deserializeRootElementName, writeArrayAttribute, encodeSpecialCharacters);
+        public static XmlDocument DeserializeXmlNode(string value, string deserializeRootElementName, bool writeArrayAttribute, bool encodeSpecialCharacters)
+        {
+            return NJsonConvert.DeserializeXmlNode(value, deserializeRootElementName, writeArrayAttribute, encodeSpecialCharacters);
+        }
 
-        public static XmlDocument DeserializeXmlNode(string value, string deserializeRootElementName, bool writeArrayAttribute) => NJsonConvert.DeserializeXmlNode(value, deserializeRootElementName, writeArrayAttribute);
+        public static XmlDocument DeserializeXmlNode(string value, string deserializeRootElementName, bool writeArrayAttribute)
+        {
+            return NJsonConvert.DeserializeXmlNode(value, deserializeRootElementName, writeArrayAttribute);
+        }
 
-        public static XmlDocument DeserializeXmlNode(string value, string deserializeRootElementName) => NJsonConvert.DeserializeXmlNode(value, deserializeRootElementName);
+        public static XmlDocument DeserializeXmlNode(string value, string deserializeRootElementName)
+        {
+            return NJsonConvert.DeserializeXmlNode(value, deserializeRootElementName);
+        }
 
-        public static XmlDocument DeserializeXmlNode(string value) => NJsonConvert.DeserializeXmlNode(value);
+        public static XmlDocument DeserializeXmlNode(string value)
+        {
+            return NJsonConvert.DeserializeXmlNode(value);
+        }
 
-        public static XDocument DeserializeXNode(string value, string deserializeRootElementName, bool writeArrayAttribute, bool encodeSpecialCharacters) => NJsonConvert.DeserializeXNode(value, deserializeRootElementName, writeArrayAttribute, encodeSpecialCharacters);
+        public static XDocument DeserializeXNode(string value, string deserializeRootElementName, bool writeArrayAttribute, bool encodeSpecialCharacters)
+        {
+            return NJsonConvert.DeserializeXNode(value, deserializeRootElementName, writeArrayAttribute, encodeSpecialCharacters);
+        }
 
-        public static XDocument DeserializeXNode(string value) => NJsonConvert.DeserializeXNode(value);
+        public static XDocument DeserializeXNode(string value)
+        {
+            return NJsonConvert.DeserializeXNode(value);
+        }
 
-        public static XDocument DeserializeXNode(string value, string deserializeRootElementName) => NJsonConvert.DeserializeXNode(value, deserializeRootElementName);
+        public static XDocument DeserializeXNode(string value, string deserializeRootElementName)
+        {
+            return NJsonConvert.DeserializeXNode(value, deserializeRootElementName);
+        }
 
-        public static XDocument DeserializeXNode(string value, string deserializeRootElementName, bool writeArrayAttribute) => NJsonConvert.DeserializeXNode(value, deserializeRootElementName, writeArrayAttribute);
-
-        [DebuggerStepThrough]
-        public static void PopulateObject(string value, object target) => NJsonConvert.PopulateObject(value, target);
-
-        public static void PopulateObject(string value, object target, JsonSerializerSettings settings) => NJsonConvert.PopulateObject(value, target, settings);
-
-        [DebuggerStepThrough]
-        public static string SerializeObject(object value, Type type, Newtonsoft.Json.Formatting formatting, JsonSerializerSettings settings) => NJsonConvert.SerializeObject(value, type, formatting, settings);
-
-        [DebuggerStepThrough]
-        public static string SerializeObject(object value, Newtonsoft.Json.Formatting formatting, JsonSerializerSettings settings) => NJsonConvert.SerializeObject(value, formatting, settings);
-
-        [DebuggerStepThrough]
-        public static string SerializeObject(object value, JsonSerializerSettings settings) => NJsonConvert.SerializeObject(value, settings);
-
-        [DebuggerStepThrough]
-        public static string SerializeObject(object value, Newtonsoft.Json.Formatting formatting, params JsonConverter[] converters) => NJsonConvert.SerializeObject(value, formatting, converters);
-
-        [DebuggerStepThrough]
-        public static string SerializeObject(object value, params JsonConverter[] converters) => NJsonConvert.SerializeObject(value, converters);
-
-        [DebuggerStepThrough]
-        public static string SerializeObject(object value, Type type, JsonSerializerSettings settings) => NJsonConvert.SerializeObject(value, type, settings);
-
-        [DebuggerStepThrough]
-        public static string SerializeObject(object value, Newtonsoft.Json.Formatting formatting) => NJsonConvert.SerializeObject(value, formatting);
+        public static XDocument DeserializeXNode(string value, string deserializeRootElementName, bool writeArrayAttribute)
+        {
+            return NJsonConvert.DeserializeXNode(value, deserializeRootElementName, writeArrayAttribute);
+        }
 
         [DebuggerStepThrough]
-        public static string SerializeObject(object value) => NJsonConvert.SerializeObject(value);
+        public static void PopulateObject(string value, object target)
+        {
+            NJsonConvert.PopulateObject(value, target);
+        }
 
-        public static string SerializeXmlNode(XmlNode node, Newtonsoft.Json.Formatting formatting, bool omitRootObject) => NJsonConvert.SerializeXmlNode(node, formatting, omitRootObject);
+        public static void PopulateObject(string value, object target, JsonSerializerSettings settings)
+        {
+            NJsonConvert.PopulateObject(value, target, settings);
+        }
 
-        public static string SerializeXmlNode(XmlNode node, Newtonsoft.Json.Formatting formatting) => NJsonConvert.SerializeXmlNode(node, formatting);
+        [DebuggerStepThrough]
+        public static string SerializeObject(object value, Type type, Newtonsoft.Json.Formatting formatting, JsonSerializerSettings settings)
+        {
+            return NJsonConvert.SerializeObject(value, type, formatting, settings);
+        }
 
-        public static string SerializeXmlNode(XmlNode node) => NJsonConvert.SerializeXmlNode(node);
+        [DebuggerStepThrough]
+        public static string SerializeObject(object value, Newtonsoft.Json.Formatting formatting, JsonSerializerSettings settings)
+        {
+            return NJsonConvert.SerializeObject(value, formatting, settings);
+        }
 
-        public static string SerializeXNode(XObject node, Newtonsoft.Json.Formatting formatting, bool omitRootObject) => NJsonConvert.SerializeXNode(node, formatting, omitRootObject);
+        [DebuggerStepThrough]
+        public static string SerializeObject(object value, JsonSerializerSettings settings)
+        {
+            return NJsonConvert.SerializeObject(value, settings);
+        }
 
-        public static string SerializeXNode(XObject node, Newtonsoft.Json.Formatting formatting) => NJsonConvert.SerializeXNode(node, formatting);
+        [DebuggerStepThrough]
+        public static string SerializeObject(object value, Newtonsoft.Json.Formatting formatting, params JsonConverter[] converters)
+        {
+            return NJsonConvert.SerializeObject(value, formatting, converters);
+        }
 
-        public static string SerializeXNode(XObject node) => NJsonConvert.SerializeXNode(node);
+        [DebuggerStepThrough]
+        public static string SerializeObject(object value, params JsonConverter[] converters)
+        {
+            return NJsonConvert.SerializeObject(value, converters);
+        }
 
-        public static string ToString(object value) => NJsonConvert.ToString(value);
+        [DebuggerStepThrough]
+        public static string SerializeObject(object value, Type type, JsonSerializerSettings settings)
+        {
+            return NJsonConvert.SerializeObject(value, type, settings);
+        }
 
-        public static string ToString(DateTimeOffset value) => NJsonConvert.ToString(value);
+        [DebuggerStepThrough]
+        public static string SerializeObject(object value, Newtonsoft.Json.Formatting formatting)
+        {
+            return NJsonConvert.SerializeObject(value, formatting);
+        }
 
-        public static string ToString(DateTimeOffset value, DateFormatHandling format) => NJsonConvert.ToString(value, format);
+        [DebuggerStepThrough]
+        public static string SerializeObject(object value)
+        {
+            return NJsonConvert.SerializeObject(value);
+        }
 
-        public static string ToString(bool value) => NJsonConvert.ToString(value);
+        public static string SerializeXmlNode(XmlNode node, Newtonsoft.Json.Formatting formatting, bool omitRootObject)
+        {
+            return NJsonConvert.SerializeXmlNode(node, formatting, omitRootObject);
+        }
 
-        public static string ToString(char value) => NJsonConvert.ToString(value);
+        public static string SerializeXmlNode(XmlNode node, Newtonsoft.Json.Formatting formatting)
+        {
+            return NJsonConvert.SerializeXmlNode(node, formatting);
+        }
 
-        public static string ToString(Enum value) => NJsonConvert.ToString(value);
+        public static string SerializeXmlNode(XmlNode node)
+        {
+            return NJsonConvert.SerializeXmlNode(node);
+        }
 
-        public static string ToString(int value) => NJsonConvert.ToString(value);
+        public static string SerializeXNode(XObject node, Newtonsoft.Json.Formatting formatting, bool omitRootObject)
+        {
+            return NJsonConvert.SerializeXNode(node, formatting, omitRootObject);
+        }
 
-        public static string ToString(short value) => NJsonConvert.ToString(value);
+        public static string SerializeXNode(XObject node, Newtonsoft.Json.Formatting formatting)
+        {
+            return NJsonConvert.SerializeXNode(node, formatting);
+        }
 
-        public static string ToString(ushort value) => NJsonConvert.ToString(value);
+        public static string SerializeXNode(XObject node)
+        {
+            return NJsonConvert.SerializeXNode(node);
+        }
 
-        public static string ToString(uint value) => NJsonConvert.ToString(value);
+        public static string ToString(object value)
+        {
+            return NJsonConvert.ToString(value);
+        }
 
-        public static string ToString(ulong value) => NJsonConvert.ToString(value);
+        public static string ToString(DateTimeOffset value)
+        {
+            return NJsonConvert.ToString(value);
+        }
 
-        public static string ToString(float value) => NJsonConvert.ToString(value);
+        public static string ToString(DateTimeOffset value, DateFormatHandling format)
+        {
+            return NJsonConvert.ToString(value, format);
+        }
 
-        public static string ToString(double value) => NJsonConvert.ToString(value);
+        public static string ToString(bool value)
+        {
+            return NJsonConvert.ToString(value);
+        }
 
-        public static string ToString(byte value) => NJsonConvert.ToString(value);
+        public static string ToString(char value)
+        {
+            return NJsonConvert.ToString(value);
+        }
 
-        public static string ToString(sbyte value) => NJsonConvert.ToString(value);
+        public static string ToString(Enum value)
+        {
+            return NJsonConvert.ToString(value);
+        }
 
-        public static string ToString(decimal value) => NJsonConvert.ToString(value);
+        public static string ToString(int value)
+        {
+            return NJsonConvert.ToString(value);
+        }
 
-        public static string ToString(Guid value) => NJsonConvert.ToString(value);
+        public static string ToString(short value)
+        {
+            return NJsonConvert.ToString(value);
+        }
 
-        public static string ToString(TimeSpan value) => NJsonConvert.ToString(value);
+        public static string ToString(ushort value)
+        {
+            return NJsonConvert.ToString(value);
+        }
 
-        public static string ToString(Uri value) => NJsonConvert.ToString(value);
+        public static string ToString(uint value)
+        {
+            return NJsonConvert.ToString(value);
+        }
 
-        public static string ToString(string value) => NJsonConvert.ToString(value);
+        public static string ToString(ulong value)
+        {
+            return NJsonConvert.ToString(value);
+        }
 
-        public static string ToString(string value, char delimiter) => NJsonConvert.ToString(value, delimiter);
+        public static string ToString(float value)
+        {
+            return NJsonConvert.ToString(value);
+        }
 
-        public static string ToString(DateTime value) => NJsonConvert.ToString(value);
+        public static string ToString(double value)
+        {
+            return NJsonConvert.ToString(value);
+        }
 
-        public static string ToString(string value, char delimiter, StringEscapeHandling stringEscapeHandling) => NJsonConvert.ToString(value, delimiter, stringEscapeHandling);
+        public static string ToString(byte value)
+        {
+            return NJsonConvert.ToString(value);
+        }
 
-        public static string ToString(long value) => NJsonConvert.ToString(value);
+        public static string ToString(sbyte value)
+        {
+            return NJsonConvert.ToString(value);
+        }
 
-        public static string ToString(DateTime value, DateFormatHandling format, DateTimeZoneHandling timeZoneHandling) => NJsonConvert.ToString(value, format, timeZoneHandling);
+        public static string ToString(decimal value)
+        {
+            return NJsonConvert.ToString(value);
+        }
+
+        public static string ToString(Guid value)
+        {
+            return NJsonConvert.ToString(value);
+        }
+
+        public static string ToString(TimeSpan value)
+        {
+            return NJsonConvert.ToString(value);
+        }
+
+        public static string ToString(Uri value)
+        {
+            return NJsonConvert.ToString(value);
+        }
+
+        public static string ToString(string value)
+        {
+            return NJsonConvert.ToString(value);
+        }
+
+        public static string ToString(string value, char delimiter)
+        {
+            return NJsonConvert.ToString(value, delimiter);
+        }
+
+        public static string ToString(DateTime value)
+        {
+            return NJsonConvert.ToString(value);
+        }
+
+        public static string ToString(string value, char delimiter, StringEscapeHandling stringEscapeHandling)
+        {
+            return NJsonConvert.ToString(value, delimiter, stringEscapeHandling);
+        }
+
+        public static string ToString(long value)
+        {
+            return NJsonConvert.ToString(value);
+        }
+
+        public static string ToString(DateTime value, DateFormatHandling format, DateTimeZoneHandling timeZoneHandling)
+        {
+            return NJsonConvert.ToString(value, format, timeZoneHandling);
+        }
     }
 }

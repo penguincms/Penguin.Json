@@ -35,13 +35,25 @@ namespace Penguin.Json
         {
         }
 
-        public static implicit operator JsonString(string b) => new JsonString(b);
+        public static implicit operator JsonString(string b)
+        {
+            return new JsonString(b);
+        }
 
-        public static implicit operator JsonString(JToken b) => new JsonString(b?.ToString());
+        public static implicit operator JsonString(JToken b)
+        {
+            return new JsonString(b?.ToString());
+        }
 
-        public static implicit operator JToken(JsonString d) => ((d?.IsValid ?? false) ? JToken.Parse(d) : null);
+        public static implicit operator JToken(JsonString d)
+        {
+            return (d?.IsValid ?? false) ? JToken.Parse(d) : null;
+        }
 
-        public static implicit operator string(JsonString d) => d?.Value;
+        public static implicit operator string(JsonString d)
+        {
+            return d?.Value;
+        }
 
         public static bool Validate(string json)
         {
@@ -77,14 +89,29 @@ namespace Penguin.Json
             return true;
         }
 
-        public string Convert() => this._value;
+        public string Convert()
+        {
+            return this._value;
+        }
 
-        public void Convert(string fromT) => this._value = fromT;
+        public void Convert(string fromT)
+        {
+            this._value = fromT;
+        }
 
-        JToken IConvertible<JToken>.Convert() => this;
+        JToken IConvertible<JToken>.Convert()
+        {
+            return this;
+        }
 
-        void IConvertible<JToken>.Convert(JToken fromT) => this._value = fromT.ToString();
+        void IConvertible<JToken>.Convert(JToken fromT)
+        {
+            this._value = fromT.ToString();
+        }
 
-        public override string ToString() => this.Value;
+        public override string ToString()
+        {
+            return this.Value;
+        }
     }
 }
