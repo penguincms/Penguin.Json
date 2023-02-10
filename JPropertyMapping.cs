@@ -43,7 +43,9 @@ namespace Penguin.Json
         }
 
         public PropertyInfo PropertyInfo { get; set; }
+
         public object Source { get; set; }
+
         public object Value { get; set; }
 
         public JPropertyMapping(object source, JProperty jProperty)

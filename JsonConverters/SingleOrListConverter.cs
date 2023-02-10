@@ -13,6 +13,7 @@ namespace Penguin.Json.JsonConverters
         }
 
         public override bool CanRead => true;
+
         public override bool CanWrite => false;
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)

@@ -10,6 +10,7 @@ namespace Penguin.Json.JsonConverters
     public class ConditionalValueConverter : JsonConverter<ConditionalValue>
     {
         public override bool CanRead => true;
+
         public override bool CanWrite => true;
 
         public override ConditionalValue ReadJson(JsonReader reader, Type objectType, ConditionalValue existingValue, bool hasExistingValue, JsonSerializer serializer)
