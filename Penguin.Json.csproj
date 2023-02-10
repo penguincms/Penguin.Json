@@ -1,12 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netstandard2.1;net5.0</TargetFrameworks>
-    <PackageProjectUrl>https://github.com/PenguinCMS/Penguin.Json</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/PenguinCms/Penguin.Json</PackageProjectUrl>
     <DocumentationFile>Penguin.Json.xml</DocumentationFile>
     <Version>5.0.5</Version>
     <AssemblyName>Penguin.Json</AssemblyName>
     <RootNamespace>Penguin.Json</RootNamespace>
     <Description>Not Available</Description>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
