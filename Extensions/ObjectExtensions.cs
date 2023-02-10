@@ -7,7 +7,7 @@ namespace Penguin.Json.Extensions
     {
         public static T JsonClone<T>(this T source)
         {
-            JsonSerializerSettings serializerSettings = new JsonSerializerSettings()
+            JsonSerializerSettings serializerSettings = new()
             {
                 TypeNameHandling = TypeNameHandling.All,
                 ReferenceLoopHandling = ReferenceLoopHandling.Serialize,

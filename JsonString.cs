@@ -8,27 +8,17 @@ namespace Penguin.Json
     {
         private string _value;
 
-        public bool IsValid => Validate(this._value);
+        public bool IsValid => Validate(_value);
 
         public string Value
         {
-            get
-            {
-                if (this.IsValid)
-                {
-                    return JToken.Parse(this._value).ToString(Formatting.Indented);
-                }
-                else
-                {
-                    return this._value;
-                }
-            }
-            set => this._value = value;
+            get => IsValid ? JToken.Parse(_value).ToString(Formatting.Indented) : _value;
+            set => _value = value;
         }
 
         public JsonString(string value)
         {
-            this._value = value;
+            _value = value;
         }
 
         public JsonString()
@@ -81,22 +71,17 @@ namespace Penguin.Json
                     return false;
             }
 
-            if (json[json.Length - 1] != eChar)
-            {
-                return false;
-            }
-
-            return true;
+            return json[^1] == eChar;
         }
 
         public string Convert()
         {
-            return this._value;
+            return _value;
         }
 
         public void Convert(string fromT)
         {
-            this._value = fromT;
+            _value = fromT;
         }
 
         JToken IConvertible<JToken>.Convert()
@@ -106,12 +91,12 @@ namespace Penguin.Json
 
         void IConvertible<JToken>.Convert(JToken fromT)
         {
-            this._value = fromT.ToString();
+            _value = fromT.ToString();
         }
 
         public override string ToString()
         {
-            return this.Value;
+            return Value;
         }
     }
 }

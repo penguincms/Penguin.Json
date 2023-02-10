@@ -12,12 +12,9 @@ namespace Penguin.Json.Extensions
     {
         public static string GetUpdatedJson(this IJsonPopulatedObject source, JsonSerializerSettings serializerSettings = null)
         {
-            if (source is null)
-            {
-                return null;
-            }
-
-            return string.IsNullOrWhiteSpace(source.RawJson)
+            return source is null
+                ? null
+                : string.IsNullOrWhiteSpace(source.RawJson)
                 ? JsonConvert.SerializeObject(source)
                 : GetUpdatedJson(source, JObject.Parse(source.RawJson), serializerSettings);
         }
@@ -73,12 +70,7 @@ namespace Penguin.Json.Extensions
 
         public static string GetPropertyName(this IJsonPopulatedObject o, string propertyName)
         {
-            if (o is null)
-            {
-                return propertyName;
-            }
-
-            return GetPropertyInfoByJsonName(o, propertyName)?.Name ?? propertyName;
+            return o is null ? propertyName : GetPropertyInfoByJsonName(o, propertyName)?.Name ?? propertyName;
         }
 
         private static PropertyInfo GetPropertyInfoByJsonName(object o, string jsonName)
@@ -98,21 +90,12 @@ namespace Penguin.Json.Extensions
 
             return null;
         }
+
         private static JToken GetToken(object o, Type oType, JsonSerializerSettings serializerSettings)
         {
             string jVal = null;
 
-            if (oType is null)
-            {
-                if (o is null)
-                {
-                    throw new NullReferenceException("oType can not be null if there is no o to derive type from");
-                }
-                else
-                {
-                    oType = o.GetType();
-                }
-            }
+            oType ??= o is null ? throw new NullReferenceException("oType can not be null if there is no o to derive type from") : o.GetType();
 
             if (typeof(IJsonPopulatedObject).IsAssignableFrom(oType))
             {
@@ -129,23 +112,16 @@ namespace Penguin.Json.Extensions
                 }
             }
 
-            if (jVal is null)
-            {
-                return null;
-            }
-            else
-            {
-                return JToken.Parse(jVal);
-            }
+            return jVal is null ? null : JToken.Parse(jVal);
         }
 
         private static string GetUpdatedJson(object source, JObject oldObject, JsonSerializerSettings serializerSettings = null)
         {
-            serializerSettings = serializerSettings ?? new JsonSerializerSettings();
+            serializerSettings ??= new JsonSerializerSettings();
 
             foreach (PropertyInfo pi in source.GetType().GetProperties().Where(p => p.GetIndexParameters().Length == 0 && p.GetGetMethod() != null))
             {
-                if (!(pi.GetCustomAttribute<JsonIgnoreAttribute>() is null))
+                if (pi.GetCustomAttribute<JsonIgnoreAttribute>() is not null)
                 {
                     continue;
                 }
@@ -160,7 +136,7 @@ namespace Penguin.Json.Extensions
 
                 JToken jVal = null;
 
-                if (curVal is IEnumerable e && !(e is string))
+                if (curVal is IEnumerable e && e is not string)
                 {
                     JArray a = oldProp.Value as JArray ?? new JArray();
 

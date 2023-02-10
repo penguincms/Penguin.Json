@@ -8,32 +8,17 @@ namespace Penguin.Json.Extensions
     {
         public static TReturn Property<TReturn>(this JObject source, PropertyInfo propertyInfo) where TReturn : class
         {
-            if (propertyInfo is null)
-            {
-                throw new ArgumentNullException(nameof(propertyInfo));
-            }
-
-            return source.Property<TReturn>(propertyInfo, false);
+            return propertyInfo is null ? throw new ArgumentNullException(nameof(propertyInfo)) : source.Property<TReturn>(propertyInfo, false);
         }
 
         public static JProperty Property(this JObject source, PropertyInfo propertyInfo)
         {
-            if (source is null)
-            {
-                throw new ArgumentNullException(nameof(source));
-            }
-
-            return source.Property(propertyInfo.GetJsonName());
+            return source is null ? throw new ArgumentNullException(nameof(source)) : source.Property(propertyInfo.GetJsonName());
         }
 
         public static TReturn Remove<TReturn>(this JObject source, PropertyInfo propertyInfo) where TReturn : class
         {
-            if (propertyInfo is null)
-            {
-                throw new ArgumentNullException(nameof(propertyInfo));
-            }
-
-            return source.Property<TReturn>(propertyInfo, true);
+            return propertyInfo is null ? throw new ArgumentNullException(nameof(propertyInfo)) : source.Property<TReturn>(propertyInfo, true);
         }
 
         private static TReturn Property<TReturn>(this JObject source, PropertyInfo propertyInfo, bool Remove) where TReturn : class

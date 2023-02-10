@@ -10,13 +10,13 @@ namespace Penguin.Json
     {
         private JObject backingObject;
 
-        IEnumerable<string> IJsonPopulatedPropertiesObject.Properties
+        public IEnumerable<string> Properties
         {
             get
             {
-                List<string> BoundProperties = new List<string>();
+                List<string> BoundProperties = new();
 
-                foreach (PropertyInfo pi in this.GetType().GetProperties())
+                foreach (PropertyInfo pi in GetType().GetProperties())
                 {
                     if (pi.GetCustomAttribute<JsonPropertyAttribute>() is JsonPropertyAttribute jpa)
                     {
@@ -26,7 +26,7 @@ namespace Penguin.Json
                     }
                 }
 
-                foreach (JProperty prop in this.backingObject.Properties())
+                foreach (JProperty prop in backingObject.Properties())
                 {
                     if (!BoundProperties.Contains(prop.Name))
                     {
@@ -36,10 +36,10 @@ namespace Penguin.Json
             }
         }
 
-        string IJsonPopulatedObject.RawJson
+        public string RawJson
         {
-            get => this.backingObject.ToString();
-            set => this.backingObject = JObject.Parse(value);
+            get => backingObject.ToString();
+            set => backingObject = JObject.Parse(value);
         }
 
         /// <summary>
@@ -48,9 +48,9 @@ namespace Penguin.Json
         /// </summary>
         /// <param name="propertyName">The name of the property to retrieve</param>
         /// <returns>The current value of the property</returns>
-        object IJsonPopulatedPropertiesObject.GetProperty(string propertyName)
+        public object GetProperty(string propertyName)
         {
-            if (this.GetType().GetProperty(propertyName) is PropertyInfo pi && pi.GetCustomAttribute<JsonPropertyAttribute>() is JsonPropertyAttribute)
+            if (GetType().GetProperty(propertyName) is PropertyInfo pi && pi.GetCustomAttribute<JsonPropertyAttribute>() is not null)
             {
                 return pi.GetValue(this);
             }

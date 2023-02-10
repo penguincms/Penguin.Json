@@ -61,9 +61,11 @@ namespace Penguin.Json.JsonConverters
                     _ = collection.Add(item);
 
                     return collection;
+
                 case JsonToken.Null:
                 case JsonToken.Undefined:
                     return null;
+
                 default:
                     throw new NotImplementedException($"Unhandled token type {reader.TokenType}");
             }

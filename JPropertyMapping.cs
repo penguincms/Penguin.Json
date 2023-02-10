@@ -14,11 +14,11 @@ namespace Penguin.Json
         {
             get
             {
-                string toReturn = this.JProperty.Name;
+                string toReturn = JProperty.Name;
 
-                if (this.Parent != null)
+                if (Parent != null)
                 {
-                    toReturn = $"{this.Parent.JsonPath}.{toReturn}";
+                    toReturn = $"{Parent.JsonPath}.{toReturn}";
                 }
 
                 return toReturn;
@@ -31,11 +31,11 @@ namespace Penguin.Json
         {
             get
             {
-                string toReturn = this.PropertyInfo.Name;
+                string toReturn = PropertyInfo.Name;
 
-                if (this.Parent != null)
+                if (Parent != null)
                 {
-                    toReturn = $"{this.Parent.Path}.{toReturn}";
+                    toReturn = $"{Parent.Path}.{toReturn}";
                 }
 
                 return toReturn;
@@ -53,9 +53,9 @@ namespace Penguin.Json
                 throw new ArgumentNullException(nameof(source));
             }
 
-            this.PropertyInfo = source.GetType().GetProperties().Single(p => p.GetJsonName() == jProperty.Name);
+            PropertyInfo = source.GetType().GetProperties().Single(p => p.GetJsonName() == jProperty.Name);
 
-            this.Value = this.PropertyInfo.GetValue(source);
+            Value = PropertyInfo.GetValue(source);
         }
     }
 }

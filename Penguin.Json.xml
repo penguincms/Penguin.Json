@@ -4,7 +4,7 @@
         <name>Penguin.Json</name>
     </assembly>
     <members>
-        <member name="M:Penguin.Json.JsonPopulatedPropertiesObject.Penguin#Json#Abstractions#Interfaces#IJsonPopulatedPropertiesObject#GetProperty(System.String)">
+        <member name="M:Penguin.Json.JsonPopulatedPropertiesObject.GetProperty(System.String)">
             <summary>
             Gets the value of a requested property, first from the hard-coded properties and then from the
             backing JSON
