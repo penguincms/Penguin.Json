@@ -12,10 +12,10 @@
   <ItemGroup>
     <PackageReference Include="Loxifi.StringConvert" Version="0.1.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="Penguin.SystemExtensions.Abstractions" Version="5.2.0" />
-    <PackageReference Include="Penguin.Json.Abstractions" Version="5.2.0" />
-    <PackageReference Include="Penguin.Reflection.Extensions" Version="5.2.0" />
-    <PackageReference Include="Penguin.Reflection" Version="5.2.0" />
+    <PackageReference Include="Penguin.SystemExtensions.Abstractions" Version="5.4.0" />
+    <PackageReference Include="Penguin.Json.Abstractions" Version="5.4.0" />
+    <PackageReference Include="Penguin.Reflection.Extensions" Version="5.4.0" />
+    <PackageReference Include="Penguin.Reflection" Version="5.4.0" />
   </ItemGroup>
   <Import Project="Penguin.Projects.Shared\Penguin.Projects.Shared.csproj" />
 </Project>
